@@ -45,10 +45,10 @@ pipeline {
         }
         stage ('Trigger SG') {
             when {
-                 sh "echo action: ${params.ACTION}"
                 expression { params.ACTION == 'apply' }
             }
             steps{
+                sh "echo action trtigger: ${params.ACTION}"
                 build job: '10-sg', parameters: [string(name: 'ACTION', value: "apply")], wait: false
             }
         }
