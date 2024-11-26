@@ -29,6 +29,7 @@ pipeline {
             } */
             steps {
                 withAWS(region: 'us-east-1', credentials: 'aws-creds') {
+                    sh "echo action: ${params.ACTION}"
                     sh """
                         cd 00-vpc
                         if [ ${params.ACTION} == 'apply' ]
