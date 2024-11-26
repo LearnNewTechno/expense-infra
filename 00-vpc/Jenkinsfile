@@ -13,7 +13,7 @@ pipeline {
     stages {
         stage('Init and Plan') {
             steps {
-                withAWS(region: 'us-east-1', credentials: 'aws-cred') {
+                withAWS(region: 'us-east-1', credentials: 'aws-creds') {
                     sh """
                         cd 00-vpc
                         terraform init -reconfigure
