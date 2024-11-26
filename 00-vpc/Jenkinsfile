@@ -45,6 +45,7 @@ pipeline {
         }
         stage ('Trigger SG') {
             when {
+                 sh "echo action: ${params.ACTION}"
                 expression { params.ACTION == 'apply' }
             }
             steps{
